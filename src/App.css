@@ -1,0 +1,96 @@
+.app {
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 40px 20px;
+  position: relative;
+  overflow: hidden;
+}
+
+/* 스포트라이트 효과 */
+.spotlight {
+  position: fixed;
+  top: -200px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 600px;
+  height: 600px;
+  background: radial-gradient(ellipse, rgba(255, 215, 0, 0.12) 0%, transparent 70%);
+  border-radius: 50%;
+  pointer-events: none;
+  animation: spotlight-pulse 3s ease-in-out infinite;
+}
+
+@keyframes spotlight-pulse {
+  0%, 100% { opacity: 0.6; transform: translateX(-50%) scale(1); }
+  50%       { opacity: 1;   transform: translateX(-50%) scale(1.1); }
+}
+
+/* 제목 */
+.title {
+  font-size: 2.8rem;
+  font-weight: 800;
+  color: white;
+  text-align: center;
+  margin-bottom: 8px;
+  text-shadow: 0 0 30px rgba(255, 215, 0, 0.5);
+  letter-spacing: -1px;
+}
+
+.title-emoji {
+  display: inline-block;
+  animation: emoji-bounce 1s ease-in-out infinite alternate;
+}
+
+.title-emoji:last-child {
+  animation-delay: 0.5s;
+}
+
+@keyframes emoji-bounce {
+  from { transform: translateY(0); }
+  to   { transform: translateY(-6px); }
+}
+
+/* 서브타이틀 */
+.subtitle {
+  font-size: 1.05rem;
+  color: rgba(255, 255, 255, 0.65);
+  text-align: center;
+  margin-bottom: 24px;
+  min-height: 1.5em;
+  transition: color 0.3s;
+}
+
+/* 키보드 힌트 */
+.keyboard-hint {
+  margin-top: 20px;
+  font-size: 0.8rem;
+  color: rgba(255, 255, 255, 0.3);
+  text-align: center;
+}
+
+/* ===== 반응형 ===== */
+@media (max-width: 480px) {
+  .title {
+    font-size: 2rem;
+  }
+
+  .app {
+    padding: 30px 16px;
+  }
+}
+
+@media (min-width: 768px) {
+  .title {
+    font-size: 3.2rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .title {
+    font-size: 3.6rem;
+  }
+}
